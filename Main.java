@@ -1,9 +1,11 @@
-package com.example.loganalyzer;
+package loganalyzer;
 
 import java.io.IOException;
 
 public class Main {
+
     public static void main(String[] args) {
+
         if (args.length == 0) {
             System.out.println("Usage: java -jar LogAnalyzer.jar <logfile>");
             return;
@@ -18,12 +20,18 @@ public class Main {
             IPAnalyzer ipAnalyzer = new IPAnalyzer();
             ipAnalyzer.analyze(parser.getEntries());
 
-            ReportGenerator.generateReport(reportFile, parser.getEntries(), ipAnalyzer);
+            ReportGenerator.generateReport(
+                    reportFile,
+                    parser.getEntries(),
+                    ipAnalyzer
+            );
 
-            System.out.println("Log analysis complete. Report saved to " + reportFile);
+            System.out.println("Log analysis complete.");
+            System.out.println("Report saved to " + reportFile);
 
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }
     }
 }
+
