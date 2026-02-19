@@ -1,14 +1,16 @@
-package com.example.loganalyzer;
+package loganalyzer;
 
 import java.util.*;
 
 public class IPAnalyzer {
+
     private Map<String, Integer> ipCount = new HashMap<>();
 
     public void analyze(List<LogEntry> entries) {
-        for (LogEntry e : entries) {
-            if (e.getIP() != null) {
-                ipCount.put(e.getIP(), ipCount.getOrDefault(e.getIP(), 0) + 1);
+        for (LogEntry entry : entries) {
+            if (entry.getIP() != null) {
+                ipCount.put(entry.getIP(),
+                        ipCount.getOrDefault(entry.getIP(), 0) + 1);
             }
         }
     }
