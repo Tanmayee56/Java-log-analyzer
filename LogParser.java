@@ -1,14 +1,13 @@
-package com.example.loganalyzer;
+package loganalyzer;
 
 import java.io.*;
 import java.util.*;
 
 public class LogParser {
 
-    private List<LogEntry> entries;
+    private List<LogEntry> entries = new ArrayList<>();
 
     public LogParser(String filePath) throws IOException {
-        entries = new ArrayList<>();
         parse(filePath);
     }
 
@@ -25,3 +24,4 @@ public class LogParser {
         return entries;
     }
 }
+
